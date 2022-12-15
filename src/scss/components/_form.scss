@@ -31,8 +31,6 @@
   }
 
   @include breakpoint-up("large") {
-    @include flex-row;
-    gap: 0;
     position: relative;
     height: pxToRem(60);
 
@@ -51,6 +49,11 @@
       position: absolute;
       right: 0;
       height: 100%;
+    }
+
+    &__message {
+      position: absolute;
+      bottom: pxToRem(-40);
     }
   }
 
