@@ -1,0 +1,14 @@
+@use "./../utils" as *;
+
+.trending {
+  &__description {
+    margin-block: pxToRem(10) pxToRem(40);
+  }
+
+  &__list {
+    @include breakpoint-up("medium") {
+      @include flex-row;
+      gap: pxToRem(30);
+    }
+  }
+}

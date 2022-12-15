@@ -1,0 +1,10 @@
+@use "./../utils" as *;
+
+.logo {
+  display: inline-block;
+  width: pxToRem(180);
+
+  @include breakpoint-up("medium") {
+    width: pxToRem(245);
+  }
+}

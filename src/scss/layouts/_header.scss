@@ -1,0 +1,9 @@
+@use "./../utils" as *;
+
+.header {
+  @include flex-row;
+  width: min(100% - pxToRem(30), pxToRem(1170));
+  padding-block: pxToRem(15);
+  margin-inline: auto;
+  justify-content: space-between;
+}

@@ -1,0 +1,109 @@
+@use "./../utils" as *;
+
+.hero {
+  &__description {
+    margin: pxToRem(10) 0 pxToRem(40) 0;
+  }
+
+  &__button {
+    @include button-bluish;
+    justify-content: center;
+    width: 100%;
+    margin-block: pxToRem(40);
+    padding: pxToRem(20) pxToRem(50);
+  }
+
+  &__card {
+    background-color: var(--background-secondary);
+    border-radius: pxToRem(20);
+    overflow: hidden;
+  }
+
+  &__card-thumb {
+    width: 100%;
+
+    @include breakpoint-up("medium") {
+      height: pxToRem(221);
+      object-fit: cover;
+    }
+
+    @include breakpoint-up("large") {
+      height: pxToRem(400);
+    }
+  }
+
+  &__card-title {
+    padding: pxToRem(22) pxToRem(20) pxToRem(10) pxToRem(20);
+  }
+
+  &__card-info {
+    @include flex-row;
+    padding-left: pxToRem(20);
+    padding-bottom: pxToRem(22);
+    gap: pxToRem(12);
+  }
+
+  &__additional {
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__state {
+    h4 {
+      font-family: var(--font-space);
+    }
+  }
+
+  @include breakpoint-up("medium") {
+    /* autoprefixer grid: off */
+    display: grid;
+    grid-template-columns: 330px 330px;
+    grid-template-areas:
+      "title card"
+      "desc card"
+      "button card"
+      "additional .";
+    column-gap: pxToRem(30);
+    justify-content: space-between;
+
+    br {
+      display: none;
+    }
+
+    &__title {
+      grid-area: title;
+    }
+
+    &__description {
+      grid-area: desc;
+      margin: 0;
+    }
+
+    &__button {
+      grid-area: button;
+      width: initial;
+      align-self: start;
+      justify-self: start;
+      margin: 0;
+    }
+
+    &__card {
+      grid-area: card;
+      align-self: start;
+    }
+
+    &__additional {
+      grid-area: additional;
+
+      @include breakpoint-up("large") {
+        justify-content: initial;
+        gap: pxToRem(100);
+      }
+    }
+  }
+
+  @include breakpoint-up("large") {
+    grid-template-columns: 1fr 1fr;
+    row-gap: pxToRem(30);
+  }
+}

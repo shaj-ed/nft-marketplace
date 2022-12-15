@@ -1,0 +1,63 @@
+@use "./../utils" as *;
+
+.footer {
+  background-color: var(--background-secondary);
+
+  p,
+  a {
+    color: var(--clr-dark);
+    font-size: pxToRem(16);
+    text-transform: capitalize;
+    cursor: pointer;
+    @include hover;
+  }
+
+  &__title {
+    margin-block-end: pxToRem(20);
+  }
+
+  &__container {
+    width: min(100% - pxToRem(30), pxToRem(1170));
+    padding-block: pxToRem(40);
+    margin-inline: auto;
+    display: grid;
+    gap: pxToRem(35);
+
+    @include breakpoint-up("medium") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-up("large") {
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+
+  &__header,
+  &__subscribe {
+    p {
+      margin-block: pxToRem(15);
+    }
+  }
+
+  &__title {
+    font-family: var(--font-space);
+  }
+
+  &__social {
+    @include flex-row;
+    gap: pxToRem(10);
+  }
+
+  &__subscribe {
+    max-width: pxToRem(420);
+
+    @include breakpoint-up("large") {
+      max-width: 100%;
+    }
+  }
+
+  .footer-nav {
+    @include flex-column;
+    gap: pxToRem(20);
+  }
+}

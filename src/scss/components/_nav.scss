@@ -1,0 +1,48 @@
+@use "./../utils" as *;
+
+.nav {
+  @include flex-row;
+  gap: pxToRem(30);
+
+  &__container {
+    @include flex-row;
+    gap: pxToRem(39);
+  }
+
+  &__link {
+    font-size: pxToRem(16);
+    font-weight: 600;
+    text-transform: capitalize;
+    cursor: pointer;
+    @include hover;
+  }
+
+  &__button {
+    @include button-bluish;
+    padding: pxToRem(16) pxToRem(30);
+  }
+
+  @include breakpoint-down("large") {
+    @include flex-column;
+    gap: pxToRem(100);
+    justify-content: center;
+    text-align: left;
+    position: absolute;
+    background-color: var(--background-secondary);
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    &__container {
+      @include flex-column;
+      align-items: flex-start;
+    }
+  }
+}

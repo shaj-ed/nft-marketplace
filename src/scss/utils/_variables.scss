@@ -1,0 +1,41 @@
+@use "./functions" as f;
+@use "./mixins" as m;
+
+:root {
+  // Fonts
+  --font-space: "Space Mono", monospace;
+  --font-body: "Work Sans", sans-serif;
+
+  --fs-headline: #{f.pxToRem(28)};
+  --fs-heading: #{f.pxToRem(28)};
+  --fs-sub-heading: #{f.pxToRem(22)};
+  --fs-heading-large: #{f.pxToRem(38)};
+  --fs-heading-small: #{f.pxToRem(16)};
+  --fs-body: #{f.pxToRem(16)};
+  --fs-body-small: #{f.pxToRem(12)};
+
+  // Colors
+  --background: #2b2b2b;
+  --background-secondary: #3b3b3b;
+  --clr-text: #ffffff;
+  --clr-text-secondary: #858584;
+  --clr-bluish: #a259ff;
+  --clr-dark: #cccccc;
+}
+
+@include m.breakpoint-up("medium") {
+  :root {
+    --fs-headline: #{f.pxToRem(38)};
+  }
+}
+
+@include m.breakpoint-up("large") {
+  :root {
+    --fs-headline: #{f.pxToRem(68)};
+    --fs-heading: #{f.pxToRem(38)};
+    --fs-heading-large: #{f.pxToRem(52)};
+    --fs-heading-small: #{f.pxToRem(22)};
+    --fs-body: #{f.pxToRem(22)};
+    --fs-body-small: #{f.pxToRem(16)};
+  }
+}

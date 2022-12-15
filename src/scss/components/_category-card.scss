@@ -1,0 +1,13 @@
+@use "./../utils" as *;
+
+.category-card {
+  border-radius: pxToRem(20);
+  overflow: hidden;
+  background-color: var(--background-secondary);
+  cursor: pointer;
+  @include hover;
+
+  &__title {
+    padding: pxToRem(25) pxToRem(20);
+  }
+}

@@ -1,0 +1,18 @@
+@use "./../utils" as *;
+
+.work-card {
+  padding: pxToRem(20);
+  background-color: var(--background-secondary);
+  border-radius: pxToRem(20);
+  @include flex-row;
+  gap: pxToRem(20);
+  @include hover;
+
+  @include breakpoint-up("medium") {
+    padding: pxToRem(10) pxToRem(30) pxToRem(30) pxToRem(30);
+    @include flex-column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
+}

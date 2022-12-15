@@ -1,0 +1,77 @@
+@use "./../utils" as *;
+
+.form {
+  @include flex-column;
+  gap: pxToRem(16);
+
+  &__input {
+    outline: 0;
+    width: 100%;
+    padding: pxToRem(12) pxToRem(20);
+    background-color: var(--clr-text);
+    color: var(--background);
+    border: pxToRem(3) solid transparent;
+    border-radius: pxToRem(20);
+
+    &::placeholder {
+      font-size: pxToRem(16);
+      text-transform: capitalize;
+      color: var(--background);
+    }
+
+    &:focus {
+      border-color: var(--clr-bluish);
+    }
+  }
+
+  &__button {
+    @include button-bluish;
+    padding: pxToRem(15) pxToRem(50);
+    justify-content: center;
+  }
+
+  @include breakpoint-up("large") {
+    @include flex-row;
+    gap: 0;
+    position: relative;
+    height: pxToRem(60);
+
+    &__label {
+      left: 0;
+      right: 0;
+      position: absolute;
+      height: 100%;
+    }
+
+    &__input {
+      height: 100%;
+    }
+
+    &__button {
+      position: absolute;
+      right: 0;
+      height: 100%;
+    }
+  }
+
+  &__message {
+    text-align: center;
+    font-weight: 600;
+    font-size: pxToRem(14);
+    opacity: 0;
+    transform: translateX(pxToRem(-20));
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    &.show {
+      opacity: 1;
+      transform: translateX(0);
+      color: #cab6dd;
+    }
+
+    &.show-alert {
+      opacity: 1;
+      transform: translateX(0);
+      color: #dddc84;
+    }
+  }
+}

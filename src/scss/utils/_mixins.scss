@@ -1,0 +1,102 @@
+@use "./functions" as f;
+
+// responsive breakpoint mixin
+$breakpoint-size-up: (
+  "medium": 48em,
+  "large": 64em,
+  "xlarge": 75em,
+  "xxlarge": 90em,
+);
+
+$breakpoint-size-down: (
+  "medium": 47.9375em,
+  "large": 63.9375em,
+);
+
+@mixin breakpoint-up($size) {
+  $device-size: map-get($breakpoint-size-up, $size);
+
+  @media (min-width: $device-size) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  $device-size: map-get($breakpoint-size-down, $size);
+
+  @media (max-width: $device-size) {
+    @content;
+  }
+}
+
+// Button
+@mixin button {
+  font-size: f.pxToRem(16);
+  font-weight: 600;
+  outline: 0;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@mixin cta($bg, $clr, $border) {
+  @include button;
+  border: $border;
+  background-color: $bg;
+  color: $clr;
+  border-radius: f.pxToRem(20);
+  text-transform: capitalize;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin button-bluish {
+  @include button;
+  @include cta(var(--clr-bluish), var(--clr-text), 0);
+  @include flex-row;
+  gap: f.pxToRem(12);
+}
+
+@mixin button-light {
+  @include button;
+  @include cta(var(--clr-text), var(--background), 0);
+  @include flex-row;
+  gap: f.pxToRem(12);
+}
+
+@mixin button-bordered {
+  @include button;
+  @include cta(
+    transparent,
+    var(--clr-text),
+    f.pxToRem(2) solid var(--clr-bluish)
+  );
+  @include flex-row;
+  gap: f.pxToRem(12);
+}
+
+// Flex things
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Hover
+@mixin hover {
+  &:hover {
+    opacity: 0.8;
+  }
+}

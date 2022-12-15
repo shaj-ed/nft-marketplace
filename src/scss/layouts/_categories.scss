@@ -1,0 +1,15 @@
+@use "./../utils" as *;
+
+.categories {
+  &__list {
+    margin-block-start: pxToRem(40);
+    display: grid;
+    gap: pxToRem(20);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include breakpoint-up("medium") {
+      gap: pxToRem(30);
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

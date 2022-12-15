@@ -1,0 +1,47 @@
+@use "./../utils" as *;
+
+.subscribe {
+  @include flex-column;
+  gap: pxToRem(30);
+
+  &__image {
+    border-radius: pxToRem(20);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__description {
+    margin-block-start: pxToRem(10);
+    margin-block-end: pxToRem(40);
+  }
+
+  @include breakpoint-up("medium") {
+    padding: pxToRem(40) pxToRem(30);
+    border-radius: pxToRem(20);
+    background-color: var(--background-secondary);
+    @include flex-row;
+    gap: pxToRem(50);
+
+    &__image {
+      width: pxToRem(300);
+      height: pxToRem(280);
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @include breakpoint-up("large") {
+    padding: pxToRem(60);
+
+    &__image {
+      width: pxToRem(425);
+      height: pxToRem(310);
+    }
+  }
+}

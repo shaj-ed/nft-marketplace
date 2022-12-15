@@ -1,0 +1,53 @@
+@use "./../utils" as *;
+
+.discover-card {
+  border-radius: pxToRem(20);
+  overflow: hidden;
+  background-color: var(--background-secondary);
+  @include hover;
+
+  &__thumb {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    padding: pxToRem(20);
+
+    @include breakpoint-up("medium") {
+      padding: pxToRem(20) pxToRem(30);
+    }
+  }
+
+  &__creator {
+    @include flex-row;
+    gap: pxToRem(12);
+    margin-block-start: pxToRem(5);
+    margin-block-end: pxToRem(25);
+  }
+
+  &__avatar {
+    width: pxToRem(24);
+    height: pxToRem(24);
+    border-radius: 50%;
+  }
+
+  &__footer {
+    @include flex-row;
+    justify-content: space-between;
+  }
+
+  &__price,
+  &__bid {
+    @include flex-column;
+    gap: pxToRem(6);
+    font-size: pxToRem(12);
+    color: var(--clr-text-secondary);
+
+    span {
+      font-size: pxToRem(16);
+      color: var(--clr-text);
+    }
+  }
+}

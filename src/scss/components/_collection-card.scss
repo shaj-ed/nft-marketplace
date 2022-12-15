@@ -1,0 +1,73 @@
+@use "./../utils" as *;
+
+.collection-card {
+  flex: 1;
+
+  &:nth-of-type(2) {
+    display: none;
+  }
+
+  &:nth-of-type(3) {
+    display: none;
+  }
+
+  @include breakpoint-up("medium") {
+    &:nth-of-type(2) {
+      display: initial;
+    }
+  }
+
+  @include breakpoint-up("large") {
+    &:nth-of-type(3) {
+      display: initial;
+    }
+  }
+
+  &__thumb,
+  &__frame {
+    border-radius: pxToRem(20);
+    overflow: hidden;
+    @include hover;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__frames {
+    @include flex-row;
+    margin-block-start: pxToRem(15);
+    gap: pxToRem(15);
+    justify-content: space-between;
+  }
+
+  &__frame {
+    flex: 1;
+  }
+
+  &__button {
+    @include button;
+    @include button-bluish;
+    @include hover;
+    font-family: var(--font-space);
+    flex: 1;
+    align-self: stretch;
+    @include flex-center;
+  }
+
+  &__title {
+    margin-block: pxToRem(15) pxToRem(10);
+  }
+
+  &__creator {
+    @include flex-row;
+    gap: pxToRem(12);
+  }
+
+  &__avatar {
+    width: pxToRem(24);
+    height: pxToRem(24);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}

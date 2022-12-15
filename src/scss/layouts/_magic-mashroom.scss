@@ -1,0 +1,147 @@
+@use "./../utils" as *;
+
+.mashroom {
+  background-color: red;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(
+      180deg,
+      rgba(162, 89, 255, 0) 0%,
+      #a259ff 100%
+    ),
+    url(./../assets/highlight-mobile.jpg);
+
+  &__container {
+    padding-block-start: pxToRem(120);
+    padding-block-end: pxToRem(40);
+    display: grid;
+    gap: pxToRem(30);
+
+    @include breakpoint-up("medium") {
+      padding-block-start: pxToRem(360);
+      padding-block-end: pxToRem(60);
+      grid-template-columns: 1fr pxToRem(310);
+      grid-template-rows: repeat(2, auto);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    @include button-light;
+    justify-content: center;
+    padding: pxToRem(20);
+  }
+
+  @include breakpoint-up("medium") {
+    background-image: linear-gradient(
+        180deg,
+        rgba(162, 89, 255, 0) 0%,
+        #a259ff 100%
+      ),
+      url(./../assets/highlight-tablet.jpg);
+
+    &__artist {
+      grid-column: 1/3;
+    }
+
+    &__timer {
+      grid-column: 2/ 3;
+      grid-row: 2/3;
+    }
+
+    &__title {
+      grid-row: 2/3;
+      grid-column: 1/2;
+
+      br {
+        display: none;
+      }
+    }
+
+    &__button {
+      grid-row: 2/3;
+      grid-column: 1/2;
+      align-self: end;
+      justify-self: start;
+      width: initial;
+      padding: pxToRem(20) pxToRem(50);
+    }
+  }
+
+  @include breakpoint-up("large") {
+    background-image: linear-gradient(
+        180deg,
+        rgba(162, 89, 255, 0) 0%,
+        #a259ff 100%
+      ),
+      url(./../assets/highlight-desktop.jpg);
+  }
+}
+
+.auction {
+  padding: pxToRem(30);
+  background: rgba(59, 59, 59, 0.5);
+  border-radius: pxToRem(20);
+  width: 100%;
+  display: grid;
+  gap: pxToRem(10);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "title title title"
+    "hour minute second";
+
+  &__title {
+    grid-area: title;
+  }
+
+  &__hours {
+    grid-area: hour;
+  }
+
+  &__minutes {
+    grid-area: minute;
+    justify-self: center;
+  }
+
+  &__seconds {
+    grid-area: second;
+    justify-self: end;
+  }
+
+  h4,
+  span,
+  p {
+    font-family: var(--font-space);
+  }
+
+  h4 {
+    font-size: pxToRem(38);
+    @include flex-column;
+  }
+
+  span {
+    font-size: pxToRem(16);
+    font-weight: 400;
+  }
+}
+
+.artist {
+  width: pxToRem(150);
+  padding: pxToRem(10) pxToRem(20);
+  border-radius: pxToRem(20);
+  background-color: var(--background-secondary);
+  @include flex-row;
+  gap: pxToRem(10);
+
+  &__avatar {
+    width: pxToRem(24);
+    height: pxToRem(24);
+    border-radius: pxToRem(20);
+  }
+
+  &__name {
+    font-size: pxToRem(16);
+  }
+}

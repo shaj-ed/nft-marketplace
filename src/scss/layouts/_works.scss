@@ -1,0 +1,19 @@
+@use "./../utils" as *;
+
+.works {
+  &__list {
+    margin-block-start: pxToRem(40);
+    @include flex-column;
+    gap: pxToRem(20);
+
+    @include breakpoint-up("medium") {
+      @include flex-row;
+      gap: pxToRem(30);
+      align-items: stretch;
+    }
+  }
+
+  &__name {
+    margin-block-end: pxToRem(10);
+  }
+}

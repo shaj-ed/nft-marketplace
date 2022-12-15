@@ -1,0 +1,21 @@
+@use "./../utils" as *;
+
+.discover {
+  &__list {
+    display: grid;
+    gap: pxToRem(20);
+
+    @include breakpoint-up("medium") {
+      grid-template-columns: repeat(2, 1fr);
+      gap: pxToRem(30);
+    }
+
+    @include breakpoint-up("large") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    p {
+      font-family: var(--font-space);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@use "./../utils" as *;
+
+.headline {
+  font-size: var(--fs-headline);
+}
+
+.heading {
+  font-size: var(--fs-heading);
+}
+
+.sub-heading {
+  font-size: var(--fs-sub-heading);
+}
+
+.heading-large {
+  font-size: var(--fs-heading-large);
+}
+
+.heading-small {
+  font-size: var(--fs-heading-small);
+}
+
+.body-para {
+  font-size: var(--fs-body);
+}
+
+.body-para-small {
+  font-size: var(--fs-body-small);
+}

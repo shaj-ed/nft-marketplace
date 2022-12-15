@@ -1,0 +1,31 @@
+@use "./../utils" as *;
+
+.creators {
+  &__list {
+    display: grid;
+    gap: pxToRem(20);
+
+    @include breakpoint-up("medium") {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include breakpoint-up("large") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    article {
+      &:nth-of-type(7),
+      &:nth-of-type(8),
+      &:nth-of-type(9),
+      &:nth-of-type(10),
+      &:nth-of-type(11),
+      &:nth-of-type(12) {
+        display: none;
+
+        @include breakpoint-up("large") {
+          display: flex;
+        }
+      }
+    }
+  }
+}

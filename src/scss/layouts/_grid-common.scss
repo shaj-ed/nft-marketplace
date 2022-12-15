@@ -1,0 +1,39 @@
+@use "./../utils" as *;
+
+.grid {
+  display: grid;
+
+  &__description {
+    margin-block: pxToRem(10) pxToRem(40);
+  }
+
+  &__button {
+    margin-block-start: pxToRem(40);
+    @include button-bordered;
+    justify-content: center;
+    width: 100%;
+    padding: pxToRem(20) pxToRem(50);
+  }
+
+  @include breakpoint-up("medium") {
+    grid-template-columns: repeat(2, 1fr);
+
+    &__description {
+      grid-column: 1 /2;
+    }
+
+    &__button {
+      width: initial;
+      margin-block-start: 0;
+      grid-column: 2 /3;
+      grid-row: 2/3;
+      align-self: start;
+      justify-self: end;
+    }
+
+    &__content {
+      margin-block-start: pxToRem(20);
+      grid-column: 1/3;
+    }
+  }
+}
